@@ -5,7 +5,7 @@
 - 위드캣쭌
 - 오리늄 (고마우신분)
 
-## 배포
+## 데모
 
 https://withcatjune.herokuapp.com/index.html
 
