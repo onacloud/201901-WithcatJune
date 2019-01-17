@@ -52,6 +52,11 @@
         .card-deck .card {
             min-width: 220px;
         }
+
+        .imgii {
+            width: 100px;
+            height: 100px;
+        }
     </style>
 </head>
 <body>
@@ -73,13 +78,13 @@
                 <img src="gd-gawi.png" class="add" cno="0"/>
             </div>
             <div class='card-body'>
-                <h1 class='card-title pricing-card-title'><span id='pct0'>0</span>%
-                    <small class='text-muted'>/ <span id='num0'>0</span></small>
-                </h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>기대값(<span id="profit0"></span>)</li>
                 </ul>
-                <img src="bawi.png">
+                <h1 class='card-title pricing-card-title'><span id='pct0'>0</span>%
+                    <small class='text-muted'>/ <span id='num0'>0</span></small>
+                </h1>
+                <img id="img0" class="imgii" src="img01.png">
             </div>
         </div>
         <div class='card mb-4 shadow-sm cat'>
@@ -87,13 +92,13 @@
                 <img src="gd-bawi.png" class="add" cno="1"/>
             </div>
             <div class='card-body'>
-                <h1 class='card-title pricing-card-title'><span id='pct1'>0</span>%
-                    <small class='text-muted'>/ <span id='num1'>0</span></small>
-                </h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>기대값(<span id="profit1"></span>)</li>
                 </ul>
-                <img src="bo.png">
+                <h1 class='card-title pricing-card-title'><span id='pct1'>0</span>%
+                    <small class='text-muted'>/ <span id='num1'>0</span></small>
+                </h1>
+                <img id="img1" class="imgii" src="img11.png">
             </div>
         </div>
         <div class='card mb-4 shadow-sm cat'>
@@ -101,22 +106,24 @@
                 <img src="gd-bo.png" class="add" cno="2"/>
             </div>
             <div class='card-body'>
-                <h1 class='card-title pricing-card-title'><span id='pct2'>0</span>%
-                    <small class='text-muted'>/ <span id='num2'>0</span></small>
-                </h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>기대값(<span id="profit2"></span>)</li>
                 </ul>
-                <img src="gawi.png">
+                <h1 class='card-title pricing-card-title'><span id='pct2'>0</span>%
+                    <small class='text-muted'>/ <span id='num2'>0</span></small>
+                </h1>
+                <img id="img2" class="imgii" src="img21.png">
             </div>
         </div>
     </div>
 
-    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div class="mb-3 text-center">
         <button type="button" class="btn btn-lg btn-block btn-primary" id="reset">Reset</button>
     </div>
-    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" id="a_computer">
+    <div class="mb-3 pb-md-4 mx-auto text-center" id="a_computer">
     </div>
+
+
     <script>
         let g_a_num = [3, 3, 3];
         let g_a_pct = [0, 0, 0];
@@ -163,10 +170,13 @@
 
         function show_result() {
             g_profit = randmax(g_depth, 1);
+            let max = Math.max(g_a_pct[0], g_a_pct[1], g_a_pct[2]);
             for (let i = 0; i < 3; i++) {
                 $("#pct" + i).html(g_a_pct[i]);
                 $("#profit" + i).html(g_a_profit[i]);
                 $("#num" + i).html(3 - g_a_num[i]);
+                if (max === g_a_pct[i]) $("#img" + i).attr('src', "img" + i + "1.png");
+                else $("#img" + i).attr('src', "img" + i + "0.png");
             }
             $("#a_computer").html(g_a_computer.join(", "));
         }
