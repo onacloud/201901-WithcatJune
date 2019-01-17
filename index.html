@@ -70,48 +70,45 @@
 
         <div class='card mb-4 shadow-sm cat'>
             <div class='card-header'>
-                <h4 class='my-0 font-weight-normal'>껨디가 바위</h4>
+                <img src="bo.png">
             </div>
             <div class='card-body'>
                 <h1 class='card-title pricing-card-title'><span id='pct1'>0</span>%
                     <small class='text-muted'>/ <span id='num1'>0</span></small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
-                    <li>보를 내세요</li>
                     <li>기대값(<span id="profit1"></span>)</li>
                 </ul>
-                <button type='button' class='btn btn-lg btn-block btn-outline-primary add' cno='1'>+1</button>
+                <button type='button' class='btn btn-lg btn-block btn-outline-primary add' cno='1'>껨디가 바위 +1</button>
 
             </div>
         </div>
         <div class='card mb-4 shadow-sm cat'>
             <div class='card-header'>
-                <h4 class='my-0 font-weight-normal'>껨디가 보</h4>
+                <img src="gawi.png">
             </div>
             <div class='card-body'>
                 <h1 class='card-title pricing-card-title'><span id='pct2'>0</span>%
                     <small class='text-muted'>/ <span id='num2'>0</span></small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
-                    <li>가위를 내세요</li>
                     <li>기대값(<span id="profit2"></span>)</li>
                 </ul>
-                <button type='button' class='btn btn-lg btn-block btn-outline-primary add' cno='2'>+1</button>
+                <button type='button' class='btn btn-lg btn-block btn-outline-primary add' cno='2'>껨디가 보 +1</button>
             </div>
         </div>
         <div class='card mb-4 shadow-sm cat'>
             <div class='card-header'>
-                <h4 class='my-0 font-weight-normal'>껨디가 가위</h4>
+                <img src="bawi.png">
             </div>
             <div class='card-body'>
                 <h1 class='card-title pricing-card-title'><span id='pct0'>0</span>%
                     <small class='text-muted'>/ <span id='num0'>0</span></small>
                 </h1>
                 <ul class="list-unstyled mt-3 mb-4">
-                    <li>바위를 내세요</li>
                     <li>기대값(<span id="profit0"></span>)</li>
                 </ul>
-                <button type='button' class='btn btn-lg btn-block btn-outline-primary add' cno='0'>+1</button>
+                <button type='button' class='btn btn-lg btn-block btn-outline-primary add' cno='0'>껨디가 가위 +1</button>
             </div>
         </div>
     </div>
@@ -139,23 +136,23 @@
         }
 
         function randmax(depth, save) {
-            let score1 = 0;
+            let score0 = 0;
             for (let i = 0; i < 3; i++) {
-                let score2 = 0;
+                let score1 = 0;
                 let pct = 0;
                 if (g_a_num[i] > 0) {
                     pct = g_a_num[i] / (9 - depth);
                     g_a_num[i]--;
-                    score2 = pct * (1 + randmax(depth, 0));
-                    score1 += score2;
+                    score1 = pct + pct * randmax(depth, 0);
+                    score0 += score1;
                     g_a_num[i]++;
                 }
                 if (save === 1) {
                     g_a_pct[i] = Math.round(pct * 100);
-                    g_a_profit[i] = score2.toFixed(2);
+                    g_a_profit[i] = score1.toFixed(2);
                 }
             }
-            return score1;
+            return score0;
         }
 
         function add_num(i) {
