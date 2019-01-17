@@ -57,6 +57,7 @@
             width: 80%;
             height: auto;
         }
+
         img.imgii {
             width: 100px;
             height: 100px;
@@ -83,7 +84,7 @@
             </div>
             <div class='card-body'>
                 <ul class="list-unstyled mt-3 mb-4">
-                    <li>기대값(<span id="profit0"></span>)</li>
+                    <li>남은 승리 기대값 (<span id="profit0"></span>)</li>
                 </ul>
                 <h1 class='card-title pricing-card-title'><span id='pct0'>0</span>%
                     <small class='text-muted'>/ <span id='num0'>0</span></small>
@@ -97,7 +98,7 @@
             </div>
             <div class='card-body'>
                 <ul class="list-unstyled mt-3 mb-4">
-                    <li>기대값(<span id="profit1"></span>)</li>
+                    <li>남은 승리 기대값 (<span id="profit1"></span>)</li>
                 </ul>
                 <h1 class='card-title pricing-card-title'><span id='pct1'>0</span>%
                     <small class='text-muted'>/ <span id='num1'>0</span></small>
@@ -111,7 +112,7 @@
             </div>
             <div class='card-body'>
                 <ul class="list-unstyled mt-3 mb-4">
-                    <li>기대값(<span id="profit2"></span>)</li>
+                    <li>남은 승리 기대값 (<span id="profit2"></span>)</li>
                 </ul>
                 <h1 class='card-title pricing-card-title'><span id='pct2'>0</span>%
                     <small class='text-muted'>/ <span id='num2'>0</span></small>
@@ -153,7 +154,7 @@
                 if (g_a_num[i] > 0) {
                     pct = g_a_num[i] / (9 - depth);
                     g_a_num[i]--;
-                    profit1 = pct + pct * randmax(depth, 0);
+                    profit1 = pct + pct * randmax(depth + 1, 0);
                     profit0 += profit1;
                     g_a_num[i]++;
                 }
