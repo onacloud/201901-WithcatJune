@@ -1,5 +1,10 @@
 # 201901-WithcatJune
 
+## 저자
+
+- 위드캣쭌
+- 오리늄
+
 ## 배포
 
 https://withcatjune.herokuapp.com/index.html
