@@ -54,8 +54,8 @@
         }
 
         img.add {
-            width: 200px;
-            height: 200px;
+            width: 80%;
+            height: auto;
         }
         img.imgii {
             width: 100px;
@@ -146,23 +146,23 @@
         }
 
         function randmax(depth, save) {
-            let score0 = 0;
+            let profit0 = 0;
             for (let i = 0; i < 3; i++) {
-                let score1 = 0;
+                let profit1 = 0;
                 let pct = 0;
                 if (g_a_num[i] > 0) {
                     pct = g_a_num[i] / (9 - depth);
                     g_a_num[i]--;
-                    score1 = pct + pct * randmax(depth, 0);
-                    score0 += score1;
+                    profit1 = pct + pct * randmax(depth, 0);
+                    profit0 += profit1;
                     g_a_num[i]++;
                 }
                 if (save === 1) {
                     g_a_pct[i] = Math.round(pct * 100);
-                    g_a_profit[i] = score1.toFixed(2);
+                    g_a_profit[i] = profit1.toFixed(2);
                 }
             }
-            return score0;
+            return profit0;
         }
 
         function add_num(i) {
@@ -179,7 +179,7 @@
                 $("#pct" + i).html(g_a_pct[i]);
                 $("#profit" + i).html(g_a_profit[i]);
                 $("#num" + i).html(3 - g_a_num[i]);
-                if (max === g_a_pct[i]) $("#img" + i).attr('src', "img" + i + "1.png");
+                if (max === g_a_pct[i] && max !== 0) $("#img" + i).attr('src', "img" + i + "1.png");
                 else $("#img" + i).attr('src', "img" + i + "0.png");
             }
             $("#a_computer").html(g_a_computer.join(", "));
