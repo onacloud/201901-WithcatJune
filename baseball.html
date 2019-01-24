@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript" src="baseball.js"></script>
+        <title>Bulls and Cows Solver (숫자 야구)</title>
+        <style>
+            .emp {
+                font-size: 1.4em;
+            }
+        </style>
+    </head>
+    <form name="form" id="mainForm">
+        <body>
+            <div id="container" style="width:100%">
+                <div id="header">
+                    <h1>Bulls and Cows Solver</h1>
+                </div>
+                <div id="menu" style="margin-bottom: 20px;">
+                    <label>Number</label>
+                    <input type="Text" id="input_Q" size=10 maxlength="3" class="emp">
+                    <label>Strike</label>
+                    <input type="Text" id = "input_S" size=1 maxlength="1" class="emp">
+                    <label>Ball</label>
+                    <input type="Text" id = "input_B" size=1  maxlength="1" class="emp">
+                    <input type="button" id="btn_execute" value="Add" class="emp" onclick="execute()">
+                    <input type="button" id="btn_Reset" value="Reset" class="emp" onclick="reset_game()">
+                </div>
+                <div id="hist" style="height:100px;margin-bottom: 10px;">
+                    <select id="history" size="7" style="width:100%; height:100%">
+                    </select>
+                </div>
+                <div id="footer">
+                    <textarea id="txt_answer" style="width:100%; height:150px; resize:none"></textarea>
+                </div>
+                <div id="real_footer" align="center"><font size="2" color="#999999">Author: blackcat610@github.com<br>Source: https://github.com/blackcat610/Bulls-and-Cows-Solver<br>숫자 야구 인공지능</font></div>
+            </div>
+        </body>
+    </form>
+</html>
